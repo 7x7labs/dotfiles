@@ -18,7 +18,7 @@ git_prompt() {
 
 # shell prompt
 setopt prompt_subst
-export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg[cyan]%}%~%{$reset_color%}%{$fg[red]%}$(git_prompt)%{$reset_color%}%{$fg[blue]%} ❯❯ '
+export PS1='${SSH_CONNECTION+"%{$fg[yellow]%}%n@%m:"}%{$fg[cyan]%}%~%{$reset_color%}%{$fg[red]%}$(git_prompt)%{$reset_color%}%{$fg[blue]%} ❯❯ '
 
 # terminal titlebar
 set-term-title() {
