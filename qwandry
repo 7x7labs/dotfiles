@@ -1,0 +1,5 @@
+register :bundler do
+  add ".bundle/gems"
+end
+
+default :bundler, :gem, :ruby
