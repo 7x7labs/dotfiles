@@ -1,4 +1,3 @@
-# terminal titlebar
 set-term-title() {
   [[ -t 1 ]] || return
   case $TERM in
@@ -9,13 +8,5 @@ set-term-title() {
   esac
 }
 
-
-# color constants
-autoload -U colors
-colors
-
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd set-term-title
-
-setopt prompt_subst
-source ~/.dotfiles/zsh/prompts/kaden.zsh

@@ -1,8 +1,7 @@
 export LESS="-R"
 export MORE="-R"
 
-# colorization
-export CLICOLOR=1
+export CLICOLOR=true
 export LSCOLORS="Exfxcxdxbxegedabagacad"
 export GREP_OPTIONS="-i --color=auto"
 

@@ -22,6 +22,7 @@ prompt_saru_setup() {
   source /usr/local/etc/bash_completion.d/git-prompt.sh
 
   PROMPT='${SSH_CONNECTION+"%{$fg[yellow]%}%n@%m:"}%{$fg[cyan]%}%~%{$reset_color%}%{$fg[red]%}$(prompt_saru_gitinfo)%{$reset_color%}%{$fg[blue]%} ❯❯ '
+  RPROMPT=''
 }
 
 prompt_saru_setup "$@"
