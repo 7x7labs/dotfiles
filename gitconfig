@@ -22,7 +22,7 @@
 [credential]
   helper = osxkeychain
 [push]
-  default = tracking
+  default = current
 [apply]
   whitespace = nowarn
 [diff]
