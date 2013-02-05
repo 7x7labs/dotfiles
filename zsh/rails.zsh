@@ -11,4 +11,5 @@ alias s="subl"
 
 # TODO: Figure out why rbenv-init causes path order reversal in some environments.
 eval "$(rbenv init - zsh)"
-path=(.bundle/bin /usr/local/bin /usr/local/sbin $path)
+
+path=(.bundle/bin $HOME/.rbenv/shims /usr/local/{bin,sbin} /usr/{bin,sbin} /{bin,sbin})
