@@ -1,13 +1,50 @@
-# (*) unstaged changes
-# (+) staged changed
-# (%) untracked files
-# ($) stashed
-source /usr/local/etc/bash_completion.d/git-prompt.sh
-git_prompt() {
-  # ✭ ✱ ✚ ✖ ⬆ ⬇ ➜ ♺ ═
-  echo "$(__git_ps1 ' (%s)')"
+#
+# A git-aware kitchen sink prompt.
+#
+# Author:
+#   Bill Mers <bill.w.mers@gmail.com>
+#
+# Symbols:
+#   ☻ ✭ ✱ ✚ ✖ ⬆ ⬇ ➜ ♺ ═ ⏎ ❮ ❯ ✗ ✘ ✓ ✔
+#
+
++vi-git-status() {
+  # Check for untracked files or updated submodules since vcs_info does not.
+  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+    hook_com[misc]=' %B%F{cyan}✖%f%b'
+  fi
 }
 
-# shell prompt
-setopt prompt_subst
-export PS1='${SSH_CONNECTION+"%{$fg[yellow]%}%n@%m:"}%{$fg[cyan]%}%~%{$reset_color%}%{$fg[red]%}$(git_prompt)%{$reset_color%}%{$fg[blue]%} ❯❯ '
+prompt_kaden_precmd() {
+  vcs_info
+}
+
+prompt_kaden_setup() {
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+  autoload -Uz vcs_info
+
+  # Add hook for calling vcs_info before each command.
+  add-zsh-hook precmd prompt_kaden_precmd
+
+  # Set vcs_info parameters.
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:*' check-for-changes true
+  zstyle ':vcs_info:*' stagedstr     ' %F{yellow}✚%f'
+  zstyle ':vcs_info:*' unstagedstr   ' %B%F{yellow}✱%f%b'
+  zstyle ':vcs_info:*' formats       ' %F{red}(%b)%f%m%u%c'
+  zstyle ':vcs_info:*' actionformats ' %F{red}(%b)%f%m%u%c|%F{blue}%a%f'
+  zstyle ':vcs_info:git*+set-message:*' hooks git-status
+
+  if [[ $1 == 'r' ]]; then
+    # Add right prompt notification if previous command failed.
+    PROMPT='%F{yellow}${SSH_TTY:+%n@%m:}%f%F{cyan}%~%f%F{red}${vcs_info_msg_0_}%f %F{blue}❯❯ '
+    RPROMPT='%(?:: %F{red}✗%f)'
+  else
+    # Change left prompt color if previous command failed.
+    PROMPT='%F{yellow}${SSH_TTY:+%n@%m:}%f%F{cyan}%~%f%F{red}${vcs_info_msg_0_}%f %(?.%F{blue}❯❯%f.%F{red}❯❯%f) '
+    RPROMPT=''
+  fi
+}
+
+prompt_kaden_setup "$@"

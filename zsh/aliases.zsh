@@ -21,7 +21,7 @@ alias du="du -kh"
 alias tf="tail -f"
 
 # apps
-alias reload="source ~/.zshrc"
+alias reload!='. ~/.zshrc'
 alias brew-up="brew update && brew upgrade && brew cleanup"
 
 # delete .DS_Store and __MACOSX directories

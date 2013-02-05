@@ -9,9 +9,6 @@ set-term-title() {
   esac
 }
 
-# directory colors
-export CLICOLOR=1
-export LSCOLORS="Exfxcxdxbxegedabagacad"
 
 # color constants
 autoload -U colors
@@ -20,4 +17,5 @@ colors
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd set-term-title
 
+setopt prompt_subst
 source ~/.dotfiles/zsh/prompts/kaden.zsh
