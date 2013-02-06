@@ -38,7 +38,7 @@ prompt_7x7_setup() {
 
   if [[ $1 == 'r' ]]; then
     # Add right prompt notification if previous command failed.
-    PROMPT='%F{yellow}${SSH_TTY:+%n@%m:}%f%F{cyan}%~%f%F{red}${vcs_info_msg_0_}%f %F{blue}❯❯ '
+    PROMPT='%F{yellow}${SSH_TTY:+%n@%m:}%f%F{cyan}%~%f%F{red}${vcs_info_msg_0_}%f %F{blue}❯❯%f '
     RPROMPT='%(?:: %F{red}✗%f)'
   else
     # Change left prompt color if previous command failed.

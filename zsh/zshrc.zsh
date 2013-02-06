@@ -6,6 +6,6 @@ source $ZSH/completion.zsh
 source $ZSH/options.zsh
 source $ZSH/rails.zsh
 source $ZSH/terminal.zsh
-# source $ZSH/highlighting.zsh
+source $ZSH/highlighting.zsh
 
 source-if-exists ~/.zlocal
