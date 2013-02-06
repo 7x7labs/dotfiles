@@ -2,6 +2,9 @@
 # A simple theme from PeepCode.
 # http://peepcode.com/blog/2012/my-command-line-prompt
 #
+# Credit:
+#   https://github.com/sorin-ionescu/prezto/blob/master/modules/prompt/functions/prompt_peepcode_setup
+#
 # Authors:
 #   Geoffrey Grosenbach <boss@topfunky.com>
 #   Sorin Ionescu <sorin.ionescu@gmail.com>

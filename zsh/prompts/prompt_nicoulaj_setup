@@ -1,6 +1,9 @@
 #
 # A simple theme that displays only relevant information.
 #
+# Credit:
+#   https://github.com/sorin-ionescu/prezto/blob/master/modules/prompt/functions/prompt_nicoulaj_setup
+#
 # Authors:
 #   Julien Nicoulaud <julien.nicoulaud@gmail.com>
 #   Sorin Ionescu <sorin.ionescu@gmail.com>

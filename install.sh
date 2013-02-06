@@ -1,29 +1,47 @@
-# git clone --recursive git://github.com/billmers/dotfiles.git ~/.dotfiles
 
-# awesome print
+if [[ $1 != "-y" ]]; then
+  echo "This install script is destructive and may overwrite existing settings in your home directory."
+  echo "If you're sure you'd like to run it, pass in the -y flag:"
+  echo
+  echo "  ./install.sh -y"
+  echo
+  exit 1
+fi
+
+echo "[dotfiles] configuring:"
+
+echo "  . awesome print"
 ln -sf ~/.dotfiles/aprc ~/.aprc
 
-# bundler
+echo "  . bundler"
 mkdir -p ~/.bundle
 ln -sf ~/.dotfiles/bundler ~/.bundle/config
 
-# rubygems
+echo "  . rubygems"
 ln -sf ~/.dotfiles/gemrc ~/.gemrc
 
-# git
+echo "  . git"
 ln -sf ~/.dotfiles/gitconfig ~/.gitconfig
 
-# irb
+echo "  . irb"
 ln -sf ~/.dotfiles/irbrc ~/.irbrc
 
-# qwandry
+echo "  . qwandry"
 mkdir -p ~/.qwandry
 ln -sf ~/.dotfiles/qwandry ~/.qwandry/init.rb
 
-# tig
+echo "  . tig"
 ln -sf ~/.dotfiles/tigrc ~/.tigrc
 
-# zsh
+echo "  . zsh"
 ln -sf ~/.dotfiles/zsh/zshrc.zsh ~/.zshrc
 ln -sf ~/.dotfiles/zsh/zshenv.zsh ~/.zshenv
+if [ ! -e ~/.zlocal ]; then
+  echo 'prompt 7x7 r' > ~/.zlocal
+fi
+
+echo " -> zsh-completions"
 brew install zsh-completions
+echo
+echo "[dotfiles] installation complete."
+echo

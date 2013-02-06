@@ -1,6 +1,9 @@
 #
 # A monochrome theme that displays basic information.
 #
+# Credit:
+#   https://github.com/sorin-ionescu/prezto/blob/master/modules/prompt/functions/prompt_minimal_setup
+#
 # Authors:
 #   Brian Tse <briankftse@gmail.com>
 #   Sorin Ionescu <sorin.ionescu@gmail.com>

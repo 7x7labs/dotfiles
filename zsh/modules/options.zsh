@@ -19,6 +19,8 @@ unsetopt EXTENDEDGLOB
 unsetopt NOTIFY
 unsetopt RMSTARSILENT
 
-fpath=(~/.dotfiles/zsh/prompts $fpath)
 autoload -Uz colors && colors
+fpath=(~/.dotfiles/zsh/prompts $fpath)
+
 autoload -Uz promptinit && promptinit
+prompt_themes=(7x7 kaden minimal nicoulaj peepcode thoughtbot)

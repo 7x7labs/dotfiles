@@ -1,50 +1,28 @@
 #
-# A git-aware kitchen sink prompt.
+# Simple, fast prompt that uses git's built-in bash script.
 #
 # Author:
-#   Bill Mers <bill.w.mers@gmail.com>
-#
-# Symbols:
-#   ☻ ✭ ✱ ✚ ✖ ⬆ ⬇ ➜ ♺ ═ ⏎ ❮ ❯ ✗ ✘ ✓ ✔
+#   Bill Mers <bill@7x7labs.com>
 #
 
-+vi-git-status() {
-  # Check for untracked files or updated submodules since vcs_info does not.
-  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    hook_com[misc]=' %B%F{cyan}✖%f%b'
-  fi
-}
-
-prompt_kaden_precmd() {
-  vcs_info
+# (*) unstaged changes
+# (+) staged changed
+# (%) untracked files
+# ($) stashed
+prompt_kaden_gitinfo() {
+  print "$(__git_ps1 ' (%s)')"
 }
 
 prompt_kaden_setup() {
-  # Load required functions.
-  autoload -Uz add-zsh-hook
-  autoload -Uz vcs_info
+  # export git-prompt environment
+  export GIT_PS1_SHOWDIRTYSTATE="true"
+  export GIT_PS1_SHOWSTASHSTATE="true"
+  export GIT_PS1_SHOWUNTRACKEDFILES="true"
 
-  # Add hook for calling vcs_info before each command.
-  add-zsh-hook precmd prompt_kaden_precmd
+  source /usr/local/etc/bash_completion.d/git-prompt.sh
 
-  # Set vcs_info parameters.
-  zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:*' stagedstr     ' %F{yellow}✚%f'
-  zstyle ':vcs_info:*' unstagedstr   ' %B%F{yellow}✱%f%b'
-  zstyle ':vcs_info:*' formats       ' %F{red}(%b)%f%m%u%c'
-  zstyle ':vcs_info:*' actionformats ' %F{red}(%b)%f%m%u%c|%F{blue}%a%f'
-  zstyle ':vcs_info:git*+set-message:*' hooks git-status
-
-  if [[ $1 == 'r' ]]; then
-    # Add right prompt notification if previous command failed.
-    PROMPT='%F{yellow}${SSH_TTY:+%n@%m:}%f%F{cyan}%~%f%F{red}${vcs_info_msg_0_}%f %F{blue}❯❯ '
-    RPROMPT='%(?:: %F{red}✗%f)'
-  else
-    # Change left prompt color if previous command failed.
-    PROMPT='%F{yellow}${SSH_TTY:+%n@%m:}%f%F{cyan}%~%f%F{red}${vcs_info_msg_0_}%f %(?.%F{blue}❯❯%f.%F{red}❯❯%f) '
-    RPROMPT=''
-  fi
+  PROMPT='${SSH_CONNECTION+"%{$fg[yellow]%}%n@%m:"}%{$fg[cyan]%}%~%{$reset_color%}%{$fg[red]%}$(prompt_kaden_gitinfo)%{$reset_color%}%{$fg[blue]%} ❯❯ '
+  RPROMPT=''
 }
 
 prompt_kaden_setup "$@"

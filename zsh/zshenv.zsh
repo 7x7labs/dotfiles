@@ -1,3 +1,6 @@
+export EDITOR="nano"
+export VISUAL="nano"
+
 export LESS="-R"
 export MORE="-R"
 

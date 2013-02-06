@@ -1,11 +1,11 @@
 #
 # Super clean and fast git prompt.
 #
-# Author:
-#   @thoughtbot.com
-#
 # Credit:
 #   https://github.com/thoughtbot/dotfiles/blob/master/zlogin
+#
+# Source:
+#   @thoughtbot.com
 #
 
 # adds the current branch name in green
