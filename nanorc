@@ -3,6 +3,20 @@
 
 syntax "awk" "\.awk$"
 
+set tabstospaces # Tab key inserts spaces (Ctrl+t for verbatim mode)
+set tabsize 2    # Insert 4 spaces per tab
+set fill 76      # Justify command (Ctrl+j) wraps at 76 columns
+set morespace    # Use the second row (usually blank) for editing space
+set quickblank   # Clear status messages after a single keystroke
+set multibuffer  # Allow opening multiple files (Alt+< and Alt+> to switch)
+set historylog   # Remember command history
+set regexp       # Enable regular expression mode for find (Ctrl+r to disable)
+
+# enabling these settings can cause problems with pasting in large buffers.
+# set autoindent   # Jump to the current indent level after inserting a newline
+# set smooth       # Scroll one line at a time
+# set const        # Show cursor position at the bottom of the screen
+
 color brightyellow "\$[A-Za-z0-9_!@#$*?-]+"
 color brightyellow "\<(ARGC|ARGIND|ARGV|BINMODE|CONVFMT|ENVIRON|ERRNO|FIELDWIDTHS)\>"
 color brightyellow "\<(FILENAME|FNR|FS|IGNORECASE|LINT|NF|NR|OFMT|OFS|ORS)\>"
@@ -364,18 +378,6 @@ color cyan  start="\-\-\[\[" end="\]\]"
 color brightwhite,cyan "TODO:?"
 color ,green "[[:space:]]+$"
 color ,red "	+"
-set tabstospaces # Tab key inserts spaces (Ctrl+t for verbatim mode)
-set tabsize 2    # Insert 4 spaces per tab
-set fill 76      # Justify command (Ctrl+j) wraps at 76 columns
-set autoindent   # Jump to the current indent level after inserting a newline
-set morespace    # Use the second row (usually blank) for editing space
-set quickblank   # Clear status messages after a single keystroke
-set multibuffer  # Allow opening multiple files (Alt+< and Alt+> to switch)
-set historylog   # Remember command history
-set smooth       # Scroll one line at a time
-set const        # Show cursor position at the bottom of the screen
-set regexp       # Enable regular expression mode for find (Ctrl+r to disable)
-
 
 # Default highlighting
 syntax "default"
