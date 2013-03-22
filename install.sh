@@ -29,10 +29,6 @@ ln -sf ~/.dotfiles/irbrc ~/.irbrc
 echo "  . nano"
 ln -sf ~/.dotfiles/nanorc ~/.nanorc
 
-echo "  . qwandry"
-mkdir -p ~/.qwandry
-ln -sf ~/.dotfiles/qwandry ~/.qwandry/init.rb
-
 echo "  . tig"
 ln -sf ~/.dotfiles/tigrc ~/.tigrc
 
