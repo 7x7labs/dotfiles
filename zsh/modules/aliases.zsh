@@ -27,8 +27,10 @@ alias hide="chflags hidden"
 alias unhide="chflags nohidden"
 alias reload!=". ~/.zshrc"
 alias update-brew="brew update && brew upgrade && brew cleanup"
-alias update-gems="rbenv update && gem update --system && gem update && gem cleanup"
-alias update-sys="sudo softwareupdate -i -a"
+alias update-bundle="bundle update && bundle clean"
+alias update-gems="gem update --system && gem update && gem cleanup"
+alias update-osx="sudo softwareupdate -i -a"
+alias update-rbenv="rbenv update"
 
 # delete .DS_Store and __MACOSX directories
 function rm-osx-cruft {
