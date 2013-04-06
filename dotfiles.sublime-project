@@ -12,10 +12,10 @@
     }
   ],
   "settings":
-   {
-     "tab_size": 2,
-     "translate_tabs_to_spaces": true,
-     "detect_indentation": false,
-     "use_tab_stops": true
-    }
+  {
+    "tab_size": 2,
+    "translate_tabs_to_spaces": true,
+    "detect_indentation": false,
+    "use_tab_stops": true
+   }
 }

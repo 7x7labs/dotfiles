@@ -26,9 +26,8 @@ alias flush-dns="sudo killall -HUP mDNSResponder"
 alias hide="chflags hidden"
 alias unhide="chflags nohidden"
 alias reload!=". ~/.zshrc"
-alias update="update-sys; update-brew; update-gems"
 alias update-brew="brew update && brew upgrade && brew cleanup"
-alias update-gems="gem update --system && gem update && gem cleanup"
+alias update-gems="rbenv update && gem update --system && gem update && gem cleanup"
 alias update-sys="sudo softwareupdate -i -a"
 
 # delete .DS_Store and __MACOSX directories
