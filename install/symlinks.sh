@@ -11,26 +11,26 @@ fi
 echo "[dotfiles] configuring:"
 
 echo "  . awesome print"
-ln -sf ~/.dotfiles/aprc ~/.aprc
+ln -sf ~/.dotfiles/.aprc ~/.aprc
 
 echo "  . bundler"
 mkdir -p ~/.bundle
-ln -sf ~/.dotfiles/bundler ~/.bundle/config
+ln -sf ~/.dotfiles/.bundler ~/.bundle/config
 
 echo "  . rubygems"
-ln -sf ~/.dotfiles/gemrc ~/.gemrc
+ln -sf ~/.dotfiles/.gemrc ~/.gemrc
 
 echo "  . git"
-ln -sf ~/.dotfiles/gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
 
 echo "  . irb"
-ln -sf ~/.dotfiles/irbrc ~/.irbrc
+ln -sf ~/.dotfiles/.irbrc ~/.irbrc
 
 echo "  . nano"
-ln -sf ~/.dotfiles/nanorc ~/.nanorc
+ln -sf ~/.dotfiles/.nanorc ~/.nanorc
 
 echo "  . tig"
-ln -sf ~/.dotfiles/tigrc ~/.tigrc
+ln -sf ~/.dotfiles/.tigrc ~/.tigrc
 
 echo "  . zsh"
 ln -sf ~/.dotfiles/zsh/zshrc.zsh ~/.zshrc
@@ -39,8 +39,6 @@ if [ ! -e ~/.zlocal ]; then
   echo 'prompt 7x7 r' > ~/.zlocal
 fi
 
-echo " -> zsh-completions"
-brew install zsh-completions
 echo
 echo "[dotfiles] installation complete."
 echo

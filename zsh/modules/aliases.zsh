@@ -10,6 +10,7 @@ alias -g N="| /dev/null"
 alias -g S='| sort'
 
 # darwin
+alias _="sudo"
 alias df="df -kh"
 alias du="du -kh"
 alias e="exit"
@@ -21,16 +22,17 @@ alias p="ps -e"
 alias tf="tail -f"
 
 # apps
+alias brew-update="brew update && brew upgrade && brew cleanup"
 alias empty-trash="rm -rf ~/.Trash/*"
 alias flush-dns="sudo killall -HUP mDNSResponder"
+alias gem-update"gem update --system && gem update && gem cleanup"
 alias hide="chflags hidden"
-alias unhide="chflags nohidden"
+alias osx-update="sudo softwareupdate -i -a"
+alias rebuild-open-with="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+alias rebuild-spotlight"sudo mdutil -E -i on /"
 alias reload!=". ~/.zshrc"
-alias update-brew="brew update && brew upgrade && brew cleanup"
-alias update-bundle="bundle update && bundle clean"
-alias update-gems="gem update --system && gem update && gem cleanup"
-alias update-osx="sudo softwareupdate -i -a"
-alias update-rbenv="rbenv update"
+alias repair-hd="sudo diskutil repairPermissions /"
+alias unhide="chflags nohidden"
 
 # delete .DS_Store and __MACOSX directories
 function rm-osx-cruft {

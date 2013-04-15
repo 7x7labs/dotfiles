@@ -7,7 +7,7 @@ Geared towards a Rails development environment.  Prerequisites: OSX, homebrew, z
 ```sh
 git clone --recursive git://github.com/7x7labs/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-./install.sh
+./install/symlinks.sh
 ```
 
 If you'd like to further customize zsh, you can place machine specific settings in `~/.zlocal`.

@@ -11,13 +11,13 @@ setopt NO_LIST_BEEP
 setopt NOMATCH
 setopt PROMPT_SUBST
 setopt PUSHD_SILENT
-setopt SHARE_HISTORY
 
 unsetopt BEEP
 unsetopt CLOBBER
 unsetopt EXTENDEDGLOB
 unsetopt NOTIFY
 unsetopt RMSTARSILENT
+unsetopt SHARE_HISTORY
 
 autoload -Uz colors && colors
 fpath=(~/.dotfiles/zsh/prompts $fpath)
