@@ -1,3 +1,6 @@
+# fasd
+eval "$(fasd --init posix-alias zsh-hook)"
+
 # globals
 alias -g ...='../..'
 alias -g ....='../../..'
