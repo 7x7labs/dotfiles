@@ -1,39 +1,19 @@
-[user]
-  name = Bill Mers
-  email = bill@7x7labs.com
-[github]
-  user = billmers
 [alias]
   a = add
-  aa = add --all
-  b = branch -v                   # branch list
-  bn = checkout -b                # branch new
+  b = branch
   c = commit
-  ca = commit -am
   co = checkout
   d = diff
   dc = diff HEAD^                 # diff last commit
   ds = diff --cached              # diff staged changes
   dt = difftool
   l = log --graph --date=short
-  pl = pull
-  ps = push
-  r = remote -v                   # remote list
-  rb = rebase -i                  # rebase interactive
   s = status -sb
-  st = stash -u
-  sl = stash list
-  sa = stash apply
-  sd = stash drop
-
-  filelog = log -u                # show changes to a file
-  uncommit = reset --soft HEAD^   # go back before last commit, with files in uncommitted state
-  unstage = reset HEAD            # remove files from index (tracking)
-
-  home-config = config user.email bill.w.mers@gmail.com
-  work-config = config user.email bill@7x7labs.com
 [core]
   editor = subl -n -w
+  precomposeunicode = true
+  trustctime = false
+  quotepath = false
 [credential]
   helper = osxkeychain
 [push]
@@ -76,3 +56,5 @@
   untracked = cyan
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %s %C(magenta) [%an]%Creset
+[include]
+  path = .gitlocal
