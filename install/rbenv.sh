@@ -4,7 +4,6 @@ exec $SHELL -l
 git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 echo "[dotfiles] installing ruby:"
-# CC=gcc rbenv install 1.9.3-p392
 rbenv install 2.0.0-p353
 rbenv global 2.0.0-p353
 rbenv rehash
