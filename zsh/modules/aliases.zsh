@@ -37,6 +37,14 @@ alias reload!=". ~/.zshrc"
 alias repair-hd="sudo diskutil repairPermissions /"
 alias unhide="chflags nohidden"
 
+# dev
+alias bb='brunch build --env local'
+alias bw='brunch watch --env local'
+alias bws='brunch watch --server --env local'
+alias g="git"
+alias s="subl"
+eval "$(hub alias -s)"
+
 # delete .DS_Store and __MACOSX directories
 function rm-osx-cruft {
   find "${@:-$PWD}" \( \
