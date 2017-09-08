@@ -24,29 +24,26 @@ alias o="open"
 alias p="ps -e"
 alias tf="tail -f"
 
+# osx
+alias osx-empty-trash="rm -rf ~/.Trash/*"
+alias osx-flush-dns="sudo killall -HUP mDNSResponder"
+alias osx-rebuild-open-with="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+alias osx-rebuild-spotlight="sudo mdutil -E -i on /"
+alias osx-repair-hd="sudo diskutil repairPermissions /"
+alias osx-update="sudo softwareupdate -i -a"
+
 # apps
 alias brew-update="brew update && brew upgrade && brew cleanup"
-alias empty-trash="rm -rf ~/.Trash/*"
-alias flush-dns="sudo killall -HUP mDNSResponder"
 alias gem-update="gem update --system && gem update && gem cleanup"
-alias hide="chflags hidden"
-alias osx-update="sudo softwareupdate -i -a"
-alias rebuild-open-with="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
-alias rebuild-spotlight="sudo mdutil -E -i on /"
 alias reload!=". ~/.zshrc"
-alias repair-hd="sudo diskutil repairPermissions /"
-alias unhide="chflags nohidden"
 
 # dev
-alias bb='brunch build --env local'
-alias bw='brunch watch --env local'
-alias bws='brunch watch --server --env local'
 alias g="git"
 alias s="subl"
 eval "$(hub alias -s)"
 
 # delete .DS_Store and __MACOSX directories
-function rm-osx-cruft {
+function osx-rm-cruft {
   find "${@:-$PWD}" \( \
     -type f -name '.DS_Store' -o \
     -type d -name '__MACOSX' \
