@@ -1,0 +1,44 @@
+#
+# A git-aware kitchen sink prompt.
+#
+# Author:
+#   Bill Mers <bill@fortressiq.com>
+#
+# Symbols:
+#   ◉ ◌ ◎ ● ○ ⊜ ⊘ ⊖
+
++vi-git-status() {
+  # Check for untracked files or updated submodules since vcs_info does not.
+  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+    hook_com[misc]=' %F{magenta}○%f'
+  fi
+}
+
+prompt_fiq_precmd() {
+  vcs_info
+}
+
+prompt_fiq_setup() {
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+  autoload -Uz vcs_info
+
+  # Add hook for calling vcs_info before each command.
+  add-zsh-hook precmd prompt_fiq_precmd
+
+  # Set vcs_info parameters.
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:*' check-for-changes true
+  zstyle ':vcs_info:*' stagedstr     ' %B%F{yellow}☻%f%b'
+  zstyle ':vcs_info:*' unstagedstr   ' %F{magenta}◎%f'
+  zstyle ':vcs_info:*' formats       ' %F{cyan}‹%b›%f%m%u%c'
+  zstyle ':vcs_info:*' actionformats ' %F{cyan}‹%b›%f%m%u%c|%F{blue}%a%f'
+  zstyle ':vcs_info:git*+set-message:*' hooks git-status
+
+  PROMPT=$'%F{cyan}╭── %F{yellow}${SSH_TTY:+%n@%m:}%f%F{blue}%~${vcs_info_msg_0_} \n%F{cyan}╰─%F{cyan}❯%f '
+
+  # Add right prompt notification if previous command failed.
+  RPROMPT='%(?:: %F{red}✗%f)'
+}
+
+prompt_fiq_setup "$@"

@@ -7,7 +7,7 @@
   dc = diff HEAD^                 # diff last commit
   ds = diff --cached              # diff staged changes
   dt = difftool
-  l = log --graph --date=short
+  l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   s = status -sb
 [core]
   editor = subl -n -w

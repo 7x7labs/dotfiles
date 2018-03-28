@@ -1,3 +1,11 @@
+def set_tenant(id)
+  Tenant.set_current_tenant Tenant.find(id)
+end
+
+unless Gem::Specification::find_all_by_name("milia").empty?
+  set_tenant(1)
+end
+
 begin
 
   alias e exit
