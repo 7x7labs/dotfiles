@@ -21,6 +21,7 @@ unsetopt SHARE_HISTORY
 
 autoload -Uz colors && colors
 fpath=(~/.dotfiles/zsh/prompts $fpath)
+fpath=(~/.dotfiles/zsh/prompts $fpath)
 
 autoload -Uz promptinit && promptinit
-prompt_themes=(fiq 7x7 kaden minimal nicoulaj peepcode thoughtbot)
+prompt_themes=(fiq 7x7 kaden minimal nicoulaj peepcode thoughtbot spaceship)

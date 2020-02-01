@@ -36,7 +36,7 @@ echo "  . zsh"
 ln -sf ~/.dotfiles/zsh/zshrc.zsh ~/.zshrc
 ln -sf ~/.dotfiles/zsh/zshenv.zsh ~/.zshenv
 if [ ! -e ~/.zlocal ]; then
-  echo 'prompt 7x7 r' > ~/.zlocal
+  echo 'prompt spaceship' > ~/.zlocal
 fi
 
 echo

@@ -11,3 +11,9 @@ zstyle :compinstall filename '~/.zshrc'
 fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -Uz compinit
 compinit
+
+if command -v kubectl &>/dev/null; then
+  source <(kubectl completion zsh)
+  alias kc=kubectl
+  complete -F __start_kubectl kc
+fi
