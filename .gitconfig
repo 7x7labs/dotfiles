@@ -10,7 +10,7 @@
   l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   s = status -sb
 [core]
-  editor = subl -n -w
+  #editor = subl -a -w
   precomposeunicode = true
   trustctime = false
   quotepath = false
@@ -60,4 +60,4 @@
   path = .gitlocal
 [user]
   name = Bill Mers
-  email = bill@7x7labs.com
+  email = bill@lookdeep.ai
