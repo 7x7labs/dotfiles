@@ -1,21 +1,10 @@
-# fasd
-eval "$(fasd --init posix-alias zsh-hook)"
-
 # globals
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
-alias -g C='| wc -l'
-alias -g G='| grep'
-alias -g H='| head'
-alias -g L="| less"
-alias -g N="| /dev/null"
-alias -g S='| sort'
 
 # darwin
 alias _="sudo"
-alias df="df -kh"
-alias du="du -kh"
 alias e="exit"
 alias l="ls -hl"
 alias la="ls -hla"
@@ -33,14 +22,13 @@ alias osx-repair-hd="sudo diskutil repairPermissions /"
 alias osx-update="sudo softwareupdate -i -a"
 
 # apps
-alias brew-update="brew update && brew upgrade && brew cleanup"
+alias brew-update="brew update && brew upgrade && brew cleanup && brew autoremove"
 alias gem-update="gem update --system && gem update && gem cleanup"
 alias reload!=". ~/.zshrc"
 
 # dev
 alias g="git"
 alias s="subl"
-eval "$(hub alias -s)"
 
 # delete .DS_Store and __MACOSX directories
 function osx-rm-cruft {

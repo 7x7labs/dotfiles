@@ -5,7 +5,7 @@ Geared towards a Rails development environment.  Prerequisites: OSX, homebrew, z
 ## Install
 
 ```sh
-git clone --recursive git@github.com:7x7labs/dotfiles.git ~/.dotfiles
+git clone git@github.com:7x7labs/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./install/symlinks.sh
 ```

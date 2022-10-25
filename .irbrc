@@ -2,7 +2,7 @@ def set_tenant(id)
   Tenant.set_current_tenant Tenant.find(id)
 end
 
-unless Gem::Specification::find_all_by_name("milia").empty?
+unless Gem::Specification::find_all_by_name("acts_as_tenant").empty?
   set_tenant(1)
 end
 
@@ -40,9 +40,9 @@ begin
   IRB.conf[:PROMPT_MODE] = :SIMPLE_COLOR
   IRB.conf[:SAVE_HISTORY] = 100
 
-  unless Gem::Specification::find_all_by_name("awesome_print").empty?
-    require "awesome_print"
-    AwesomePrint.irb!
+  unless Gem::Specification::find_all_by_name("amazing_print").empty?
+    require "amazing_print"
+    AmazingPrint.irb!
   end
 
   unless Gem::Specification::find_all_by_name("hirb").empty?

@@ -59,5 +59,9 @@
 [include]
   path = .gitlocal
 [user]
-  name = Bill Mers
-  email = bill@lookdeep.ai
+	name = Bill Mers
+	email = bill@lookdeep.ai
+[init]
+  defaultBranch = master
+[fetch]
+  prune = true

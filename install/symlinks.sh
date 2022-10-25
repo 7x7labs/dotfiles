@@ -10,12 +10,8 @@ fi
 
 echo "[dotfiles] configuring:"
 
-echo "  . awesome print"
+echo "  . amazing print"
 ln -sf ~/.dotfiles/.aprc ~/.aprc
-
-echo "  . bundler"
-mkdir -p ~/.bundle
-ln -sf ~/.dotfiles/.bundler ~/.bundle/config
 
 echo "  . rubygems"
 ln -sf ~/.dotfiles/.gemrc ~/.gemrc
