@@ -9,24 +9,22 @@
   dt = difftool
   l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   s = status -sb
+[apply]
+  whitespace = nowarn
 [core]
-  #editor = subl -a -w
   precomposeunicode = true
   trustctime = false
   quotepath = false
-	excludesfile = /Users/Bill/.gitignore
+	excludesFile = /Users/Bill/.config/git/ignore
 [credential]
   helper = osxkeychain
+[pull]
+  rebase = false
+  ff = only
+  autoSetupRemote = true
 [push]
   default = simple
   autoSetupRemote = true
-[apply]
-  whitespace = nowarn
-[diff]
-  # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
-  # instead of a/b/c/d as prefixes for patches
-  mnemonicprefix = true
-	tool = Kaleidoscope
 [color]
   branch = auto
   diff = auto
@@ -49,9 +47,6 @@
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %s %C(magenta) [%an]%Creset
 [include]
   path = .gitlocal
-[user]
-	name = Bill Mers
-	email = bill@lookdeep.ai
 [init]
   defaultBranch = master
 [fetch]
@@ -61,15 +56,23 @@
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
+[diff]
+  # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
+  # instead of a/b/c/d as prefixes for patches
+  mnemonicprefix = true
+  tool = Kaleidoscope
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
-	prompt = false
-	trustExitCode = true
+  prompt = false
+  trustExitCode = true
 [merge]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
 [mergetool]
-	prompt = false
+  prompt = false
+[user]
+  name = Bill Mers
+  email = bill@lookdeep.ai

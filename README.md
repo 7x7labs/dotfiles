@@ -10,7 +10,7 @@ cd ~/.dotfiles
 ./install/symlinks.sh
 ```
 
-If you'd like to further customize zsh, you can place machine specific settings in `~/.zlocal.zsh`.
+If you'd like to further customize zsh, you can place machine specific settings in `~/.zlogin`.
 
 ## Thanks
 

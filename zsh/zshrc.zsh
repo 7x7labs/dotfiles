@@ -1,4 +1,13 @@
 #
+# XDG base directories
+#
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
+export HISTFILE="$XDG_STATE_HOME"/zsh/history
+export PYTHON_HISTORY="$XDG_CACHE_HOME"/python/history
+
+#
 # Aliases
 #
 source $HOME/.dotfiles/zsh/aliases.zsh
@@ -17,7 +26,8 @@ bindkey "^[OB" history-beginning-search-forward
 #
 FPATH=/opt/homebrew/share/zsh/site-functions:$FPATH
 autoload -Uz compinit
-compinit
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+# compinit
 
 #
 # Zsh plugins (order matters)
@@ -33,5 +43,3 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(zoxide init zsh)"
-
-source-if-exists ~/.zlocal.zsh

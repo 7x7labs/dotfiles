@@ -11,6 +11,7 @@ alias more="less"
 alias g="git"
 alias b="bundle"
 alias be="bundle exec"
+eval "$(gh copilot alias -- zsh)"
 
 # osx
 alias osx-empty-trash="rm -rf ~/.Trash/*"
