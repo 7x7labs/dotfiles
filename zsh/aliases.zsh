@@ -1,17 +1,16 @@
-# globals
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-
-# darwin
-alias _="sudo"
+# shell
+alias ..="cd .."
+alias ...="cd ../.."
 alias e="exit"
-alias l="ls -hl"
-alias la="ls -hla"
+alias ls="eza"
+alias l="ls -l --git  --group-directories-first"
+alias la="ls -la --git  --group-directories-first"
 alias more="less"
-alias o="open"
-alias p="ps -e"
-alias tf="tail -f"
+
+# dev
+alias g="git"
+alias b="bundle"
+alias be="bundle exec"
 
 # osx
 alias osx-empty-trash="rm -rf ~/.Trash/*"
@@ -24,11 +23,6 @@ alias osx-update="sudo softwareupdate -i -a"
 # apps
 alias brew-update="brew update && brew upgrade && brew cleanup && brew autoremove"
 alias gem-update="gem update --system && gem update && gem cleanup"
-alias reload!=". ~/.zshrc"
-
-# dev
-alias g="git"
-alias s="subl"
 
 # delete .DS_Store and __MACOSX directories
 function osx-rm-cruft {

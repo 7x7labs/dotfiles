@@ -13,28 +13,18 @@ echo "[dotfiles] configuring:"
 echo "  . amazing print"
 ln -sf ~/.dotfiles/.aprc ~/.aprc
 
-echo "  . rubygems"
-ln -sf ~/.dotfiles/.gemrc ~/.gemrc
-
 echo "  . git"
 ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
-
-echo "  . irb"
-ln -sf ~/.dotfiles/.irbrc ~/.irbrc
-
-echo "  . nano"
-ln -sf ~/.dotfiles/.nanorc ~/.nanorc
-
-echo "  . tig"
-ln -sf ~/.dotfiles/.tigrc ~/.tigrc
 
 echo "  . zsh"
 ln -sf ~/.dotfiles/zsh/zshrc.zsh ~/.zshrc
 ln -sf ~/.dotfiles/zsh/zshenv.zsh ~/.zshenv
-if [ ! -e ~/.zlocal ]; then
-  echo 'prompt spaceship' > ~/.zlocal
+ln -sf ~/.dotfiles/zsh/zprofile.zsh ~/.zprofile
+if [ ! -e ~/.zlocal.zsh ]; then
+  echo 'prompt spaceship' > ~/.zlocal.zsh
 fi
 
 echo
 echo "[dotfiles] installation complete."
 echo
+``

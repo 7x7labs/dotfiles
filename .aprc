@@ -1,11 +1,5 @@
 AmazingPrint.defaults = {
-  :indent     => -2,
-  :sort_keys  => false,
-  :limit      => 100,
-  :color => {
-    :array   => :redish,
-    :hash    => :cyanish,
-    :fixnum  => :purpleish,
-    :symbol  => :cyan
-  }
+  indent: -2,
+  sort_keys: false,
+  limit: 100
 }

@@ -1,16 +1,37 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+#
+# Aliases
+#
+source $HOME/.dotfiles/zsh/aliases.zsh
 
-ZSH=~/.dotfiles/zsh/modules
+#
+# Keybindings
+#
+bindkey -e
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
+bindkey "^[OA" history-beginning-search-backward
+bindkey "^[OB" history-beginning-search-forward
 
-source $ZSH/aliases.zsh
-source $ZSH/bindkeys.zsh
-source $ZSH/completions.zsh
-source $ZSH/highlighting.zsh
-source $ZSH/python.zsh
-source $ZSH/ruby.zsh
+#
+# Completions
+#
+FPATH=/opt/homebrew/share/zsh/site-functions:$FPATH
+autoload -Uz compinit
+compinit
 
-source-if-exists ~/.zlocal
+#
+# Zsh plugins (order matters)
+#
+source <(fzf --zsh)
+source-if-exists $HOME/Code/fzf-tab/fzf-tab.plugin.zsh
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#
+# Utils
+#
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+eval "$(zoxide init zsh)"
+
+source-if-exists ~/.zlocal.zsh

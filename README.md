@@ -1,6 +1,6 @@
 # 7x7 Labs dotfiles
 
-Geared towards a Rails development environment.  Prerequisites: OSX, homebrew, zsh, git and rbenv.
+Geared towards a Rails development environment.  Prerequisites: OSX, homebrew, zsh, git.
 
 ## Install
 
@@ -10,12 +10,7 @@ cd ~/.dotfiles
 ./install/symlinks.sh
 ```
 
-If you'd like to further customize zsh, you can place machine specific settings in `~/.zlocal`.
-
-## Issues
-
-* `.gitconfig` has hardcoded user names and emails.
-* `rbenv init` sometimes causes `$path` order to be rewritten, so `$path` is hardcoded for now.
+If you'd like to further customize zsh, you can place machine specific settings in `~/.zlocal.zsh`.
 
 ## Thanks
 

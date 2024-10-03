@@ -1,5 +1,0 @@
-set tab-size = 2
-
-color cursor          white black bold
-color title-focus     black white
-color title-blur      black white
