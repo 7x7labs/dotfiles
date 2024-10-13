@@ -32,3 +32,4 @@ venv.bak/
 # IDE specific
 .idea/
 .vscode/
+*.code-workspace

@@ -27,7 +27,6 @@ bindkey "^[OB" history-beginning-search-forward
 FPATH=/opt/homebrew/share/zsh/site-functions:$FPATH
 autoload -Uz compinit
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
-# compinit
 
 #
 # Zsh plugins (order matters)

@@ -6,6 +6,7 @@ alias ls="eza"
 alias l="ls -l --git  --group-directories-first"
 alias la="ls -la --git  --group-directories-first"
 alias more="less"
+alias htop="btop"
 
 # dev
 alias g="git"
