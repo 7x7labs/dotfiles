@@ -7,12 +7,14 @@ alias l="ls -l --git  --group-directories-first"
 alias la="ls -la --git  --group-directories-first"
 alias more="less"
 alias htop="btop"
+alias cat="bat --paging=never --style=plain --theme=ansi"
 
 # dev
 alias g="git"
 alias b="bundle"
 alias be="bundle exec"
 eval "$(gh copilot alias -- zsh)"
+alias ai="ghcs"
 
 # osx
 alias osx-empty-trash="rm -rf ~/.Trash/*"

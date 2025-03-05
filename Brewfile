@@ -7,6 +7,7 @@ brew "zsh-syntax-highlighting"
 brew "starship"
 
 # utils
+brew "bat"
 brew "btop"
 brew "eza"
 brew "fzf"

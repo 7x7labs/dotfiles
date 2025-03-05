@@ -5,6 +5,7 @@ export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
+export PSQL_HISTORY="$XDG_STATE_HOME"/psql_history
 export PYTHON_HISTORY="$XDG_CACHE_HOME"/python/history
 
 #
@@ -33,6 +34,16 @@ compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 #
 source <(fzf --zsh)
 source-if-exists $HOME/Code/fzf-tab/fzf-tab.plugin.zsh
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# custom fzf flags
+zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -42,3 +53,8 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(zoxide init zsh)"
+
+#
+# Exports
+#
+export PIP_REQUIRE_VIRTUALENV=true
