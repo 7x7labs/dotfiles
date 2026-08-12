@@ -29,7 +29,10 @@ ln -sf ~/.dotfiles/zsh/zshrc.zsh ~/.zshrc
 ln -sf ~/.dotfiles/zsh/zshenv.zsh ~/.zshenv
 ln -sf ~/.dotfiles/zsh/zprofile.zsh ~/.zprofile
 if [ ! -e ~/.zlogin ]; then
-  echo 'eval "$(starship init zsh)"' > ~/.zlogin
+  printf '%s\n' \
+    'if [[ -o interactive && -t 1 && "${TERM:-}" != "dumb" ]]; then' \
+    '  eval "$(starship init zsh)"' \
+    'fi' > ~/.zlogin
 fi
 
 echo

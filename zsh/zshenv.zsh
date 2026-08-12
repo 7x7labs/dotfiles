@@ -15,4 +15,12 @@ export CLICOLOR=true
 export LSCOLORS="ExfxgxdxCxegedabagacad"
 
 typeset -gU path
-path=(/usr/local/{bin,sbin} /usr/{bin,sbin} /{bin,sbin} /$HOME/.local/bin)
+path=(/usr/local/{bin,sbin} /usr/{bin,sbin} /{bin,sbin} $HOME/.local/bin)
+
+# Non-interactive zsh commands read this file, but not .zprofile or .zshrc.
+# Keep toolchain bootstrap here minimal: paths only, no prompts/completions/hooks.
+if [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+path=($HOME/.local/share/mise/shims $path)

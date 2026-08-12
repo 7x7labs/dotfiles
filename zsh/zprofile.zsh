@@ -1,4 +1,7 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Login zsh reads this after macOS /etc/zprofile, which may reorder PATH.
+# Keep this in sync with the minimal path bootstrap in zshenv.zsh.
+if [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
-# Add mise shims to PATH for IDEs and script integrations
-eval "$(mise activate zsh --shims)"
+path=($HOME/.local/share/mise/shims $path)
